@@ -4,14 +4,16 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=production
-
-# Install TypeScript dependencies to compile, which will be cleaned up/ignored in execution
-RUN npm install -g typescript ts-node
+# Install all dependencies (including devDependencies like typescript and rimraf)
+RUN npm install
 
 COPY . .
 
+# Compile TypeScript to JavaScript
 RUN npm run build
+
+# Remove development dependencies to keep the image small
+RUN npm prune --production
 
 EXPOSE 5000
 
