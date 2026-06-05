@@ -160,7 +160,7 @@ export default function Login() {
           </p>
           <p>• Student: <code className="text-violet-300">student@eduai.com</code></p>
           <p>• Teacher: <code className="text-indigo-300">teacher@eduai.com</code></p>
-          <p>• Admin: <code className="text-pink-300">admin@eduai.com</code></p>
+          {/* <p>• Admin: <code className="text-pink-300">admin@eduai.com</code></p>   */}
         </div>
       </div>
     </div>
