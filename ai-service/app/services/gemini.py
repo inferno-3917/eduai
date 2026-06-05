@@ -72,10 +72,10 @@ def _generate_mock_fallback(prompt: str, json_mode: bool) -> str:
         # 2. Roadmap mock
         elif "roadmap" in lower_prompt or "month" in lower_prompt:
             goal = "Software Developer"
-            if "data scientist" in lower_prompt:
-                goal = "Data Scientist"
-            elif "ai engineer" in lower_prompt:
-                goal = "AI Engineer"
+            for line in prompt.split('\n'):
+                if line.startswith("Career Goal:"):
+                    goal = line.replace("Career Goal:", "").strip()
+                    break
             
             return json.dumps({
                 "career_goal": goal,
