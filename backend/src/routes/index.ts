@@ -7,7 +7,7 @@ import { chatTutor, getChatHistory } from '../controllers/tutorController';
 import { evaluateCareer, getCareerRecommendations } from '../controllers/careerController';
 import { generateStudyPlan, getStudyPlan } from '../controllers/plannerController';
 import { uploadNotes, getDocuments } from '../controllers/notesController';
-import { getStats } from '../controllers/adminController';
+import { getStats, createUser, updateUser, deleteUser } from '../controllers/adminController';
 import { getAnalytics } from '../controllers/analyticsController';
 import { getNotifications, markNotificationsAsRead } from '../controllers/notificationController';
 
@@ -60,5 +60,8 @@ router.put('/notifications/read', authenticateJWT, markNotificationsAsRead);
 
 // --- Admin APIs ---
 router.get('/admin/stats', authenticateJWT, authorizeRoles('admin'), getStats);
+router.post('/admin/users', authenticateJWT, authorizeRoles('admin'), createUser);
+router.put('/admin/users/:id', authenticateJWT, authorizeRoles('admin'), updateUser);
+router.delete('/admin/users/:id', authenticateJWT, authorizeRoles('admin'), deleteUser);
 
 export default router;
