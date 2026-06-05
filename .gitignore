@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Production builds
+dist/
+backend/dist/
+frontend/dist/
+
+# Environments / Secrets
+.env
+.env.production
+.env.local
+
+# Python envs & cache
+ai-service/venv/
+ai-service/.venv/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+ai-service/.pytest_cache/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
