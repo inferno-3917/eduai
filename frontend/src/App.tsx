@@ -17,6 +17,7 @@ import Analytics from './pages/Analytics';
 import Profile from './pages/Profile';
 import CreateAssessment from './pages/CreateAssessment';
 import Courses from './pages/Courses';
+import AdminUsers from './pages/AdminUsers';
 
 import DashboardLayout from './components/DashboardLayout';
 
@@ -73,6 +74,7 @@ function AppRoutes() {
         {/* Teacher/Admin Specific Routes */}
         <Route path="/courses" element={<PrivateRoute allowedRoles={['teacher', 'admin']}><Courses /></PrivateRoute>} />
         <Route path="/create-assessment" element={<PrivateRoute allowedRoles={['teacher', 'admin']}><CreateAssessment /></PrivateRoute>} />
+        <Route path="/admin-users" element={<PrivateRoute allowedRoles={['admin']}><AdminUsers /></PrivateRoute>} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
